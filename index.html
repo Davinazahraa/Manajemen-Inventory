@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Manajemen Persediaan</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background: #4CAF50;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+    }
+    nav {
+      background: #f2f2f2;
+      padding: 1rem;
+      display: flex;
+      gap: 10px;
+    }
+    main {
+      padding: 1rem;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 0.5rem;
+      text-align: left;
+    }
+    th {
+      background: #e0e0e0;
+    }
+    button {
+      padding: 5px 10px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Aplikasi Manajemen Persediaan</h1>
+</header>
+
+<nav>
+  <button onclick="tampilkanProduk()">📦 Data Produk</button>
+  <button onclick="tampilkanStokMasuk()">➕ Stok Masuk</button>
+  <button onclick="tampilkanStokKeluar()">➖ Stok Keluar</button>
+  <button onclick="tampilkanLaporan()">📊 Laporan</button>
+</nav>
+
+<main id="konten">
+  <h2>Selamat datang!</h2>
+  <p>Gunakan navigasi di atas untuk mengelola persediaan Anda.</p>
+</main>
+
+<script>
+  function tampilkanProduk() {
+    document.getElementById('konten').innerHTML = `
+      <h2>Data Produk</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Kode</th>
+            <th>Nama</th>
+            <th>Stok</th>
+            <th>Harga</th>
+            <th>Aksi</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>PRD001</td>
+            <td>Produk A</td>
+            <td>100</td>
+            <td>Rp10.000</td>
+            <td><button>Edit</button> <button>Hapus</button></td>
+          </tr>
+        </tbody>
+      </table>
+    `;
+  }
+
+  function tampilkanStokMasuk() {
+    document.getElementById('konten').innerHTML = `
+      <h2>Input Stok Masuk</h2>
+      <form onsubmit="event.preventDefault(); alert('Stok masuk disimpan!');">
+        <label>Kode Produk: <input type="text" required /></label><br/><br/>
+        <label>Jumlah Masuk: <input type="number" required /></label><br/><br/>
+        <button type="submit">Simpan</button>
+      </form>
+    `;
+  }
+
+  function tampilkanStokKeluar() {
+    document.getElementById('konten').innerHTML = `
+      <h2>Input Stok Keluar</h2>
+      <form onsubmit="event.preventDefault(); alert('Stok keluar disimpan!');">
+        <label>Kode Produk: <input type="text" required /></label><br/><br/>
+        <label>Jumlah Keluar: <input type="number" required /></label><br/><br/>
+        <button type="submit">Simpan</button>
+      </form>
+    `;
+  }
+
+  function tampilkanLaporan() {
+    document.getElementById('konten').innerHTML = `
+      <h2>Laporan Persediaan</h2>
+      <p>Grafik dan tabel stok akan ditampilkan di sini.</p>
+    `;
+  }
+</script>
+
+</body>
+</html>
+
